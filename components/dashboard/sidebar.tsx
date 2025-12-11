@@ -33,20 +33,23 @@ const navigation = [
   { name: "Configuración", href: "/dashboard/configuracion", icon: Settings },
 ]
 
-interface SidebarProps {
-  user?: {
-    nombre: string
-    email: string
-    rol: "admin" | "empleado"
-    negocio: string
-  }
-}
+import { useAuth } from "@/lib/contexts/AuthContext"
 
-export function Sidebar({
-  user = { nombre: "Admin", email: "admin@ejemplo.com", rol: "admin", negocio: "Mi Negocio" },
-}: SidebarProps) {
+export function Sidebar() {
+  const { user } = useAuth()
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  if (!user) {
+    return null // O un spinner
+  }
+
+  const filteredNavigation = navigation.filter(item => {
+    if (item.name === "Configuración") {
+      return user.rol === "admin"
+    }
+    return true
+  })
 
   return (
     <>
@@ -93,7 +96,7 @@ export function Sidebar({
 
         {/* Navigation */}
         <nav className="flex-1 py-4 px-3 space-y-1">
-          {navigation.map((item) => {
+          {filteredNavigation.map((item) => {
             const isActive = pathname === item.href
             return (
               <Link

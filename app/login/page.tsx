@@ -11,9 +11,11 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { loginAction } from "./actions"
+import { useAuth } from "@/lib/contexts/AuthContext"
 
 export default function LoginPage() {
   const router = useRouter()
+  const { login } = useAuth()
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState<{ email?: string; password?: string; general?: string }>({})
@@ -66,9 +68,18 @@ export default function LoginPage() {
       return
     }
 
-    // 🔥 Login exitoso → guardar el token
-    if (response.data?.access_token) {
-      localStorage.setItem("token", response.data.access_token)
+    // 🔥 Login exitoso → usar el contexto
+    if (response.data?.access_token && response.data?.user) {
+      const { user, access_token } = response.data
+      login(
+        {
+          nombre: user.name,
+          email: user.email,
+          rol: user.role,
+          negocio: "Mi Negocio", // Esto debería venir de la API
+        },
+        access_token
+      )
     }
 
     setIsLoading(false)

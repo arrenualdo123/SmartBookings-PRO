@@ -24,6 +24,8 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+import { AuthProvider } from "@/lib/contexts/AuthContext"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
         <Analytics />
       </body>
     </html>
