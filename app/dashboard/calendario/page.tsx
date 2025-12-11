@@ -57,9 +57,11 @@ export default function CalendarioPage() {
   // =============================
  const loadAppointments = async () => {
   try {
-    const { data } = await axios.get<Appointment[]>("/appointments/month", {
+    const response = await axios.get("/api/appointments/month", {
       params: { year, month }
     })
+
+    const data = response.data as Appointment[]
 
     const byDay: DayAppointments = {}
 
@@ -75,6 +77,7 @@ export default function CalendarioPage() {
     console.error("Error cargando citas:", error)
   }
 }
+
 
   useEffect(() => {
     loadAppointments()

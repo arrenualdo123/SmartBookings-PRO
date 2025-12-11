@@ -6,12 +6,15 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
+    /**
+     * Listar citas del negocio
+     */
     public function index()
     {
-        // Devuelve SOLO citas del negocio del usuario autenticado
         $appointments = Appointment::where('business_id', Auth::user()->business_id)
             ->with('user')
             ->get();
@@ -22,6 +25,9 @@ class AppointmentController extends Controller
         ]);
     }
 
+    /**
+     * Crear cita
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -34,7 +40,7 @@ class AppointmentController extends Controller
 
         $businessId = Auth::user()->business_id;
 
-        // SOLAPAMIENTO
+        // Validar SOLAPAMIENTO
         $overlap = Appointment::where('business_id', $businessId)
             ->where('user_id', $request->user_id)
             ->where(function ($query) use ($request) {
@@ -49,12 +55,11 @@ class AppointmentController extends Controller
 
         if ($overlap) {
             return response()->json([
-                'status'  => 'error',
+                'status' => 'error',
                 'message' => 'Este horario se solapa con otra cita existente.'
-            ], Response::HTTP_CONFLICT); 
+            ], Response::HTTP_CONFLICT);
         }
 
-        // CREAR CITA
         $appointment = Appointment::create([
             'business_id' => $businessId,
             'user_id'     => $request->user_id,
@@ -70,6 +75,9 @@ class AppointmentController extends Controller
         ], Response::HTTP_CREATED);
     }
 
+    /**
+     * Ver una cita
+     */
     public function show(Appointment $appointment)
     {
         return response()->json([
@@ -78,6 +86,9 @@ class AppointmentController extends Controller
         ]);
     }
 
+    /**
+     * Actualizar cita
+     */
     public function update(Request $request, Appointment $appointment)
     {
         $request->validate([
@@ -88,7 +99,7 @@ class AppointmentController extends Controller
             'user_id'      => 'sometimes|exists:users,id'
         ]);
 
-        // SI CAMBIA HORARIO → revisar solapamiento
+        // revisa solapamiento si cambia horario/usuario
         if ($request->start_time || $request->end_time || $request->user_id) {
 
             $user  = $request->user_id ?? $appointment->user_id;
@@ -124,6 +135,9 @@ class AppointmentController extends Controller
         ]);
     }
 
+    /**
+     * Eliminar cita
+     */
     public function destroy(Appointment $appointment)
     {
         $appointment->delete();
@@ -134,7 +148,9 @@ class AppointmentController extends Controller
         ]);
     }
 
-    // 🔥 MÉTODO QUE FALTABA (la ruta existía en tu api.php)
+    /**
+     * Citas por usuario (ruta: /users/{user}/appointments)
+     */
     public function appointmentsByUser($userId)
     {
         $appointments = Appointment::where('user_id', $userId)
@@ -148,97 +164,96 @@ class AppointmentController extends Controller
         ]);
     }
 
+    /**
+     * Horarios disponibles para un día
+     * /appointments/available?date=2025-02-10
+     */
     public function available(Request $request)
-{
-    $request->validate([
-        'date' => 'required|date'
-    ]);
+    {
+        $request->validate([
+            'date' => 'required|date'
+        ]);
 
-    $date = Carbon::parse($request->date);
-    $dayOfWeek = $date->dayOfWeek; // 0=Domingo, 1=Lunes ... 6=Sábado
+        $date = Carbon::parse($request->date);
+        $dayOfWeek = $date->dayOfWeek; // 0=Dom, 1=Lun...6=Sab
 
-    // ================================
-    // HORARIOS por DÍA DE LA SEMANA
-    // ================================
-    switch ($dayOfWeek) {
-        case 0: // Domingo
-            return response()->json([]); // Cerrado
-        case 6: // Sábado
-            $workStart = "10:00";
-            $workEnd   = "14:00";
-            break;
-        default: // Lunes a Viernes
-            $workStart = "09:00";
-            $workEnd   = "18:00";
-    }
-
-    $intervalMinutes = 30;
-
-    $start = Carbon::parse($date->format('Y-m-d') . " " . $workStart);
-    $end   = Carbon::parse($date->format('Y-m-d') . " " . $workEnd);
-
-    // ================================
-    // Obtener citas existentes del día
-    // ================================
-    $existing = Appointment::whereDate('start_time', $date)
-        ->get()
-        ->map(function ($a) {
-            return [
-                'start' => Carbon::parse($a->start_time),
-                'end'   => Carbon::parse($a->end_time)
-            ];
-        });
-
-    // ================================
-    // Calcular huecos disponibles
-    // ================================
-    $available = [];
-    $cursor = $start->copy();
-
-    while ($cursor < $end) {
-        $slotStart = $cursor->copy();
-        $slotEnd = $cursor->copy()->addMinutes($intervalMinutes);
-
-        $isFree = true;
-
-        foreach ($existing as $event) {
-            if (
-                ($slotStart >= $event['start'] && $slotStart < $event['end']) ||
-                ($slotEnd > $event['start'] && $slotEnd <= $event['end'])
-            ) {
-                $isFree = false;
+        // Horario según día
+        switch ($dayOfWeek) {
+            case 0: // Domingo
+                return response()->json([]);
+            case 6: // Sábado
+                $workStart = "10:00";
+                $workEnd   = "14:00";
                 break;
+            default: // Lunes–Viernes
+                $workStart = "09:00";
+                $workEnd   = "18:00";
+        }
+
+        $intervalMinutes = 30;
+
+        $start = Carbon::parse($date->format('Y-m-d') . " " . $workStart);
+        $end   = Carbon::parse($date->format('Y-m-d') . " " . $workEnd);
+
+        // Citas existentes del día
+        $existing = Appointment::whereDate('start_time', $date)
+            ->get()
+            ->map(function ($a) {
+                return [
+                    'start' => Carbon::parse($a->start_time),
+                    'end'   => Carbon::parse($a->end_time)
+                ];
+            });
+
+        // Calcular huecos disponibles
+        $available = [];
+        $cursor = $start->copy();
+
+        while ($cursor < $end) {
+
+            $slotStart = $cursor->copy();
+            $slotEnd = $cursor->copy()->addMinutes($intervalMinutes);
+
+            $isFree = true;
+
+            foreach ($existing as $event) {
+                if (
+                    ($slotStart >= $event['start'] && $slotStart < $event['end']) ||
+                    ($slotEnd > $event['start'] && $slotEnd <= $event['end'])
+                ) {
+                    $isFree = false;
+                    break;
+                }
             }
+
+            if ($isFree) {
+                $available[] = [
+                    "start" => $slotStart->format("H:i"),
+                    "end"   => $slotEnd->format("H:i"),
+                ];
+            }
+
+            $cursor->addMinutes($intervalMinutes);
         }
 
-        if ($isFree) {
-            $available[] = [
-                "start" => $slotStart->format("H:i"),
-                "end"   => $slotEnd->format("H:i"),
-            ];
-        }
-
-        $cursor->addMinutes($intervalMinutes);
+        return response()->json($available);
     }
 
-    return response()->json($available);
-}
+    /**
+     * Todas las citas de un mes (para el calendario mensual)
+     */
+    public function getByMonth(Request $request)
+    {
+        $request->validate([
+            'year'  => 'required|integer|min:2000|max:2100',
+            'month' => 'required|integer|min:1|max:12',
+        ]);
 
-public function getByMonth(Request $request)
-{
-    $request->validate([
-        'year' => 'required|integer',
-        'month' => 'required|integer|min:1|max:12',
-    ]);
+        $appointments = Appointment::where('business_id', Auth::user()->business_id)
+            ->whereYear('start_time', $request->year)
+            ->whereMonth('start_time', $request->month)
+            ->get();
 
-    $year = $request->year;
-    $month = $request->month;
-
-    $appointments = Appointment::whereYear('start_time', $year)
-        ->whereMonth('start_time', $month)
-        ->get();
-
-    return response()->json($appointments);
-}
-
+        return response()->json($appointments);
+    }
 }
