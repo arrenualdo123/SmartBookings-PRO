@@ -24,7 +24,7 @@ export default function RegistroPage() {
     password: "",
     password_confirmation: "",
     business_id: 1,
-    role: "employe",
+    role: "employee",
   })
 
   const validateForm = () => {
@@ -205,7 +205,7 @@ export default function RegistroPage() {
                 }
               >
                 <option value="admin">Administrador</option>
-                <option value="employe">Empleado</option>
+                <option value="employee">Empleado</option>
               </select>
               {errors.role && <p className="text-sm text-destructive">{errors.role}</p>}
             </div>
