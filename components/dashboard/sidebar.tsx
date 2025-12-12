@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Calendar,
   Users,
@@ -14,16 +14,18 @@ import {
   Clock,
   UserCircle,
   ChevronDown,
-} from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+
+import { useAuth } from "@/context/AuthContext";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -31,22 +33,22 @@ const navigation = [
   { name: "Citas", href: "/dashboard/citas", icon: Clock },
   { name: "Clientes", href: "/dashboard/clientes", icon: Users },
   { name: "Configuración", href: "/dashboard/configuracion", icon: Settings },
-]
+];
 
-interface SidebarProps {
-  user?: {
-    nombre: string
-    email: string
-    rol: "admin" | "empleado"
-    negocio: string
-  }
-}
+export function Sidebar() {
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-export function Sidebar({
-  user = { nombre: "Admin", email: "admin@ejemplo.com", rol: "admin", negocio: "Mi Negocio" },
-}: SidebarProps) {
-  const pathname = usePathname()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  // 👇 Usuario real del contexto
+  const { user } = useAuth();
+
+  // Si no hay usuario, evitar errores
+  const safeUser = {
+    nombre: user?.name ?? "Usuario",
+    email: user?.email ?? "correo@ejemplo.com",
+    rol: user?.role ?? "empleado",
+    negocio: "Mi Negocio",
+  };
 
   return (
     <>
@@ -56,7 +58,9 @@ export function Sidebar({
           <div className="w-9 h-9 bg-sidebar-primary rounded-lg flex items-center justify-center">
             <Calendar className="w-5 h-5 text-sidebar-primary-foreground" />
           </div>
-          <span className="text-lg font-semibold text-sidebar-foreground">SmartBookings</span>
+          <span className="text-lg font-semibold text-sidebar-foreground">
+            SmartBookings
+          </span>
         </div>
         <Button
           variant="ghost"
@@ -70,14 +74,17 @@ export function Sidebar({
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-foreground/50 z-40" onClick={() => setIsMobileMenuOpen(false)} />
+        <div
+          className="lg:hidden fixed inset-0 bg-foreground/50 z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
       )}
 
       {/* Sidebar */}
       <aside
         className={cn(
           "fixed top-0 left-0 h-full w-64 bg-sidebar border-r border-sidebar-border z-50 flex flex-col transition-transform duration-300 lg:translate-x-0",
-          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full",
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {/* Logo */}
@@ -86,15 +93,17 @@ export function Sidebar({
             <Calendar className="w-6 h-6 text-sidebar-primary-foreground" />
           </div>
           <div>
-            <span className="text-lg font-semibold text-sidebar-foreground">SmartBookings</span>
-            <p className="text-xs text-sidebar-foreground/60">{user.negocio}</p>
+            <span className="text-lg font-semibold text-sidebar-foreground">
+              SmartBookings
+            </span>
+            <p className="text-xs text-sidebar-foreground/60">{safeUser.negocio}</p>
           </div>
         </div>
 
         {/* Navigation */}
         <nav className="flex-1 py-4 px-3 space-y-1">
           {navigation.map((item) => {
-            const isActive = pathname === item.href
+            const isActive = pathname === item.href;
             return (
               <Link
                 key={item.name}
@@ -104,13 +113,13 @@ export function Sidebar({
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                   isActive
                     ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                    : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                    : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                 )}
               >
                 <item.icon className="w-5 h-5" />
                 {item.name}
               </Link>
-            )
+            );
           })}
         </nav>
 
@@ -123,16 +132,21 @@ export function Sidebar({
                   <UserCircle className="w-6 h-6 text-sidebar-accent-foreground" />
                 </div>
                 <div className="flex-1 text-left">
-                  <p className="text-sm font-medium text-sidebar-foreground">{user.nombre}</p>
-                  <p className="text-xs text-sidebar-foreground/60 capitalize">{user.rol}</p>
+                  <p className="text-sm font-medium text-sidebar-foreground">
+                    {safeUser.nombre}
+                  </p>
+                  <p className="text-xs text-sidebar-foreground/60 capitalize">
+                    {safeUser.rol}
+                  </p>
                 </div>
                 <ChevronDown className="w-4 h-4 text-sidebar-foreground/60" />
               </button>
             </DropdownMenuTrigger>
+
             <DropdownMenuContent align="end" className="w-56">
               <div className="px-2 py-1.5">
-                <p className="text-sm font-medium">{user.nombre}</p>
-                <p className="text-xs text-muted-foreground">{user.email}</p>
+                <p className="text-sm font-medium">{safeUser.nombre}</p>
+                <p className="text-xs text-muted-foreground">{safeUser.email}</p>
               </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
@@ -159,5 +173,5 @@ export function Sidebar({
         </div>
       </aside>
     </>
-  )
+  );
 }

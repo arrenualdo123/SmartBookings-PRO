@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -11,6 +10,23 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { loginAction } from "./actions"
+
+// 👇 función para llamar al backend REAL usando el token
+async function fetchUser() {
+  const token = localStorage.getItem("token")
+  if (!token) return null
+
+  const res = await fetch("http://localhost:8000/api/auth/me", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/json"
+    }
+  })
+
+  if (!res.ok) return null
+
+  return await res.json()
+}
 
 export default function LoginPage() {
   const router = useRouter()
@@ -49,30 +65,42 @@ export default function LoginPage() {
     setIsLoading(true)
     setErrors({})
 
-    // 🔥 Llamar acción del backend
+    // 🔥 LOGIN BACKEND
     const response = await loginAction(new FormData(e.target as HTMLFormElement))
 
     if (!response.ok) {
       setIsLoading(false)
 
-      // Backend error: 401 Unauthorized
       if (response.status === 401) {
         setErrors({ general: "Credenciales incorrectas" })
         return
       }
 
-      // Otros errores del backend
       setErrors({ general: response.data?.message || "Error al iniciar sesión" })
       return
     }
 
-    // 🔥 Login exitoso → guardar el token
-    if (response.data?.access_token) {
-      localStorage.setItem("token", response.data.access_token)
+    // 🔥 Guardar token
+    const token = response.data?.access_token
+    if (token) {
+      localStorage.setItem("token", token)
     }
+
+    // 🔥 Obtener usuario REAL desde backend
+    const user = await fetchUser()
+
+    if (!user) {
+      setErrors({ general: "Error obteniendo datos del usuario" })
+      setIsLoading(false)
+      return
+    }
+
+    // Guardar usuario en localStorage (incluye nombre, email, role, id)
+    localStorage.setItem("user", JSON.stringify(user))
 
     setIsLoading(false)
 
+    // Redirigir al dashboard
     router.push("/dashboard")
   }
 

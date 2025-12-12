@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -10,25 +11,41 @@ class RoleMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     * @param  string $role El rol o roles permitidos (ej: 'admin' o 'admin|employe')
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string  $roles  Ejemplo: "admin" o "admin|employee"
      */
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next, string $roles): Response
     {
-        // 1. Verificar si el usuario está autenticado (debería estarlo si pasa el middleware 'auth:api')
+        // ⛔ Si no está autenticado
         if (!auth()->check()) {
-            return response()->json(['error' => 'No autorizado. Se requiere iniciar sesión.'], 401);
+            return response()->json([
+                'error' => 'No autorizado. Se requiere iniciar sesión.',
+            ], 401);
         }
 
-        // 2. Obtener los roles requeridos y verificar
-        $roles_requeridos = explode('|', $role);
-        
-        // Comprobar si el rol del usuario está en la lista de roles requeridos
-        if (!in_array(auth()->user()->role, $roles_requeridos)) {
-            // Error de permiso denegado [cite: 108]
-            return response()->json(['error' => 'Permiso denegado. Rol insuficiente.'], 403); 
+        $user = auth()->user();
+
+        // ⛔ Si el usuario no tiene campo "role"
+        if (!isset($user->role)) {
+            return response()->json([
+                'error' => 'El usuario no tiene rol asignado.',
+            ], 403);
         }
 
+        // Roles permitidos (pueden venir varios: "admin|employee")
+        $allowedRoles = explode('|', $roles);
+
+        // ⛔ Verificar si el rol del usuario está permitido
+        if (!in_array($user->role, $allowedRoles)) {
+            return response()->json([
+                'error' => 'Permiso denegado. Rol insuficiente.',
+                'required_roles' => $allowedRoles,
+                'user_role' => $user->role,
+            ], 403);
+        }
+
+        // ✅ Todo OK, continuar
         return $next($request);
     }
 }

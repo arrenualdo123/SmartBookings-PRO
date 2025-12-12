@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Search, Plus, Filter, MoreHorizontal, User, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -8,92 +8,78 @@ import { Card, CardContent } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
+import axios from "@/lib/axios"
 
 type Cita = {
   id: number
-  cliente: string
+  nombre: string
   servicio: string
   fecha: string
   hora: string
   duracion: number
-  estado: "confirmada" | "pendiente" | "cancelada" | "completada"
-  empleado: string
-}
-
-const citas: Cita[] = [
-  {
-    id: 1,
-    cliente: "Cristian Chavez",
-    servicio: "Corte de cabello",
-    fecha: "2025-12-02",
-    hora: "09:00",
-    duracion: 30,
-    estado: "confirmada",
-    empleado: "Athenea",
-  },
-  {
-    id: 2,
-    cliente: "Salomon Arreola",
-    servicio: "Corte de cabello",
-    fecha: "2025-12-02",
-    hora: "10:30",
-    duracion: 45,
-    estado: "pendiente",
-    empleado: "Esmeralda Díaz",
-  },
-]
-
-const estadoStyles = {
-  confirmada: "bg-green-100 text-green-700",
-  pendiente: "bg-yellow-100 text-yellow-700",
-  cancelada: "bg-red-100 text-red-700",
-  completada: "bg-blue-100 text-blue-700",
-}
-
-const estadoLabels = {
-  confirmada: "Confirmada",
-  pendiente: "Pendiente",
-  cancelada: "Cancelada",
-  completada: "Completada",
+  estado: string
+  empleado?: string
 }
 
 export default function CitasPage() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [filtroEstado, setFiltroEstado] = useState<string>("todos")
+  const [citas, setCitas] = useState<Cita[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
+  const [searchQuery, setSearchQuery] = useState("")
+  const [filtroEstado, setFiltroEstado] = useState("todos")
+
+  // ======================================
+  //  Cargar citas desde el backend
+  // ======================================
+  useEffect(() => {
+    const fetchCitas = async () => {
+      try {
+        const resp = await axios.get("/appointments")
+        setCitas((resp.data as any).data ?? resp.data) // por si usas Resource o json directo
+      } catch (err) {
+        console.error(err)
+        setError("Error al cargar citas")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchCitas()
+  }, [])
+
+  // ======================================
+  //  Filtrado
+  // ======================================
   const filteredCitas = citas.filter((cita) => {
     const matchesSearch =
-      cita.cliente.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cita.servicio.toLowerCase().includes(searchQuery.toLowerCase())
+      cita.nombre?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cita.servicio?.toLowerCase().includes(searchQuery.toLowerCase())
+
     const matchesEstado = filtroEstado === "todos" || cita.estado === filtroEstado
+
     return matchesSearch && matchesEstado
   })
 
-  // Group by date
-  const groupedCitas = filteredCitas.reduce(
-    (acc, cita) => {
-      if (!acc[cita.fecha]) {
-        acc[cita.fecha] = []
-      }
-      acc[cita.fecha].push(cita)
-      return acc
-    },
-    {} as Record<string, Cita[]>,
-  )
+  // ======================================
+  // 🔹 Agrupar por fecha
+  // ======================================
+  const groupedCitas = filteredCitas.reduce((acc, cita) => {
+    if (!acc[cita.fecha]) acc[cita.fecha] = []
+    acc[cita.fecha].push(cita)
+    return acc
+  }, {} as Record<string, Cita[]>)
 
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr)
-    const today = new Date()
-    const tomorrow = new Date(today)
-    tomorrow.setDate(tomorrow.getDate() + 1)
-
-    if (dateStr === today.toISOString().split("T")[0]) {
-      return "Hoy"
-    } else if (dateStr === tomorrow.toISOString().split("T")[0]) {
-      return "Mañana"
-    }
     return date.toLocaleDateString("es-MX", { weekday: "long", day: "numeric", month: "long" })
   }
+
+  // ======================================
+  // UI
+  // ======================================
+  if (loading) return <p>Cargando citas...</p>
+  if (error) return <p className="text-red-500">{error}</p>
 
   return (
     <div className="space-y-6">
@@ -124,6 +110,7 @@ export default function CitasPage() {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
+
             <Select value={filtroEstado} onValueChange={setFiltroEstado}>
               <SelectTrigger className="w-full sm:w-48 bg-input border-border">
                 <Filter className="w-4 h-4 mr-2" />
@@ -141,60 +128,57 @@ export default function CitasPage() {
         </CardContent>
       </Card>
 
-      {/* Appointments List */}
+      {/* Lista de citas */}
       <div className="space-y-6">
-        {Object.entries(groupedCitas)
-          .sort(([a], [b]) => a.localeCompare(b))
-          .map(([fecha, citasDelDia]) => (
-            <div key={fecha}>
-              <h2 className="text-lg font-semibold text-foreground mb-3 capitalize">{formatDate(fecha)}</h2>
-              <div className="space-y-3">
-                {citasDelDia.map((cita) => (
-                  <Card key={cita.id} className="bg-card border-border">
-                    <CardContent className="p-4">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div className="flex items-start gap-4">
-                          <div className="w-16 text-center">
-                            <p className="text-lg font-bold text-card-foreground">{cita.hora}</p>
-                            <p className="text-xs text-muted-foreground">{cita.duracion} min</p>
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                              <User className="w-4 h-4 text-muted-foreground" />
-                              <span className="font-medium text-card-foreground">{cita.cliente}</span>
-                            </div>
-                            <p className="text-sm text-muted-foreground">{cita.servicio}</p>
-                            <p className="text-xs text-muted-foreground mt-1">Atendido por: {cita.empleado}</p>
-                          </div>
+        {Object.entries(groupedCitas).map(([fecha, citasDelDia]) => (
+          <div key={fecha}>
+            <h2 className="text-lg font-semibold text-foreground mb-3 capitalize">{formatDate(fecha)}</h2>
+            <div className="space-y-3">
+              {citasDelDia.map((cita) => (
+                <Card key={cita.id} className="bg-card border-border">
+                  <CardContent className="p-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div className="flex items-start gap-4">
+                        <div className="w-16 text-center">
+                          <p className="text-lg font-bold text-card-foreground">{cita.hora}</p>
+                          <p className="text-xs text-muted-foreground">{cita.duracion} min</p>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <span className={`text-xs px-3 py-1 rounded-full ${estadoStyles[cita.estado]}`}>
-                            {estadoLabels[cita.estado]}
-                          </span>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" size="icon">
-                                <MoreHorizontal className="w-4 h-4" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem>Ver detalles</DropdownMenuItem>
-                              <DropdownMenuItem>Editar</DropdownMenuItem>
-                              <DropdownMenuItem>Reagendar</DropdownMenuItem>
-                              {cita.estado === "pendiente" && <DropdownMenuItem>Confirmar</DropdownMenuItem>}
-                              {cita.estado !== "completada" && cita.estado !== "cancelada" && (
-                                <DropdownMenuItem className="text-destructive">Cancelar</DropdownMenuItem>
-                              )}
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-1">
+                            <User className="w-4 h-4 text-muted-foreground" />
+                            <span className="font-medium text-card-foreground">{cita.nombre}</span>
+                          </div>
+                          <p className="text-sm text-muted-foreground">{cita.servicio}</p>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+
+                      <div className="flex items-center gap-3">
+                        <span className="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-700">
+                          {cita.estado}
+                        </span>
+
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" size="icon">
+                              <MoreHorizontal className="w-4 h-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem>Ver detalles</DropdownMenuItem>
+                            <DropdownMenuItem>Editar</DropdownMenuItem>
+                            <DropdownMenuItem>Reagendar</DropdownMenuItem>
+                            <DropdownMenuItem className="text-destructive">Cancelar</DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
-          ))}
+          </div>
+        ))}
 
         {Object.keys(groupedCitas).length === 0 && (
           <Card className="bg-card border-border">

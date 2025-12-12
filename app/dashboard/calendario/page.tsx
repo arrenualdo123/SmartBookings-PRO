@@ -45,9 +45,8 @@ export default function CalendarioPage() {
   const [appointments, setAppointments] = useState<DayAppointments>({})
 
   const year = currentDate.getFullYear()
-  const month = currentDate.getMonth() + 1   // Backend requiere 1–12
-
-  const jsMonth = currentDate.getMonth()     // Para UI
+  const month = currentDate.getMonth() + 1
+  const jsMonth = currentDate.getMonth()
 
   const today = new Date()
   const isCurrentMonth = today.getMonth() === jsMonth && today.getFullYear() === year
@@ -55,29 +54,28 @@ export default function CalendarioPage() {
   // =============================
   // Cargar citas desde backend
   // =============================
- const loadAppointments = async () => {
-  try {
-    const response = await axios.get("/api/appointments/month", {
-      params: { year, month }
-    })
+  const loadAppointments = async () => {
+    try {
+      // 🔥 RUTA CORREGIDA:
+      const response = await axios.get("/appointments/month", {
+        params: { year, month },
+      })
 
-    const data = response.data as Appointment[]
+      const data = response.data as Appointment[]
 
-    const byDay: DayAppointments = {}
+      const byDay: DayAppointments = {}
 
-    data.forEach(event => {
-      const day = new Date(event.start_time).getDate()
-      if (!byDay[day]) byDay[day] = []
-      byDay[day].push(event)
-    })
+      data.forEach((event) => {
+        const day = new Date(event.start_time).getDate()
+        if (!byDay[day]) byDay[day] = []
+        byDay[day].push(event)
+      })
 
-    setAppointments(byDay)
-
-  } catch (error) {
-    console.error("Error cargando citas:", error)
+      setAppointments(byDay)
+    } catch (error) {
+      console.error("Error cargando citas:", error)
+    }
   }
-}
-
 
   useEffect(() => {
     loadAppointments()
@@ -118,7 +116,7 @@ export default function CalendarioPage() {
   const selectedAppointments = selectedDate ? getAppointmentsForDay(selectedDate) : []
 
   // =============================
-  // UI (SIN TOCAR NADA )
+  // UI
   // =============================
   return (
     <div className="space-y-6">
@@ -187,8 +185,8 @@ export default function CalendarioPage() {
                       isSelected
                         ? "bg-primary text-primary-foreground"
                         : isToday
-                          ? "bg-primary/10 text-primary"
-                          : "hover:bg-muted"
+                        ? "bg-primary/10 text-primary"
+                        : "hover:bg-muted"
                     }`}
                   >
                     <span className="text-sm font-medium">{day}</span>
@@ -231,15 +229,18 @@ export default function CalendarioPage() {
                         appointment.status === "cancelada"
                           ? "bg-destructive/5 border-destructive/20"
                           : appointment.status === "pendiente"
-                            ? "bg-yellow-50 border-yellow-200"
-                            : "bg-primary/5 border-primary/20"
+                          ? "bg-yellow-50 border-yellow-200"
+                          : "bg-primary/5 border-primary/20"
                       }`}
                     >
                       <div className="flex items-start justify-between">
                         <div className="flex items-center gap-2">
                           <Clock className="w-4 h-4 text-muted-foreground" />
                           <span className="font-medium text-card-foreground">
-                            {new Date(appointment.start_time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                            {new Date(appointment.start_time).toLocaleTimeString([], {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
                           </span>
                         </div>
 
@@ -269,8 +270,8 @@ export default function CalendarioPage() {
                           appointment.status === "confirmada"
                             ? "bg-green-100 text-green-700"
                             : appointment.status === "pendiente"
-                              ? "bg-yellow-100 text-yellow-700"
-                              : "bg-red-100 text-red-700"
+                            ? "bg-yellow-100 text-yellow-700"
+                            : "bg-red-100 text-red-700"
                         }`}
                       >
                         {appointment.status}
