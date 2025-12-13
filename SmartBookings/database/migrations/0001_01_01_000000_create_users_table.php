@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('business_id'); 
             
             // *** Autorización: role (admin o employe) ***
-            $table->enum('role', ['admin', 'employe'])->default('employe');
+            $table->enum('role', ['admin', 'employee'])->default('employee');
 
             $table->string('name');
             $table->string('email')->unique();

@@ -490,6 +490,7 @@ function SelectScrollDownButton({ className, ...props }) {
 "[project]/app/dashboard/configuracion/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+//app/dashboard/configuracion/page.tsx
 __turbopack_context__.s([
     "default",
     ()=>ConfiguracionPage
@@ -646,7 +647,7 @@ function ConfiguracionPage() {
                         children: "Configuración"
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                        lineNumber: 72,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -654,13 +655,13 @@ function ConfiguracionPage() {
                         children: "Administra tu negocio y preferencias"
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                        lineNumber: 73,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                lineNumber: 71,
+                lineNumber: 72,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Tabs"], {
@@ -678,7 +679,7 @@ function ConfiguracionPage() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 80,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -686,13 +687,13 @@ function ConfiguracionPage() {
                                         children: "Negocio"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                        lineNumber: 80,
+                                        lineNumber: 81,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                lineNumber: 78,
+                                lineNumber: 79,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -703,7 +704,7 @@ function ConfiguracionPage() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 84,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -711,13 +712,13 @@ function ConfiguracionPage() {
                                         children: "Horarios"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                        lineNumber: 84,
+                                        lineNumber: 85,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                lineNumber: 82,
+                                lineNumber: 83,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -728,7 +729,7 @@ function ConfiguracionPage() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 88,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -736,13 +737,13 @@ function ConfiguracionPage() {
                                         children: "Servicios"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                        lineNumber: 88,
+                                        lineNumber: 89,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                lineNumber: 86,
+                                lineNumber: 87,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TabsTrigger"], {
@@ -753,7 +754,7 @@ function ConfiguracionPage() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                        lineNumber: 91,
+                                        lineNumber: 92,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -761,19 +762,19 @@ function ConfiguracionPage() {
                                         children: "Alertas"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                        lineNumber: 92,
+                                        lineNumber: 93,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                lineNumber: 90,
+                                lineNumber: 91,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                        lineNumber: 77,
+                        lineNumber: 78,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -786,20 +787,20 @@ function ConfiguracionPage() {
                                             children: "Información del Negocio"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 100,
+                                            lineNumber: 101,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
                                             children: "Datos generales de tu establecimiento"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 101,
+                                            lineNumber: 102,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                    lineNumber: 99,
+                                    lineNumber: 100,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -816,7 +817,7 @@ function ConfiguracionPage() {
                                                             children: "Nombre del negocio"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 106,
+                                                            lineNumber: 107,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -828,13 +829,13 @@ function ConfiguracionPage() {
                                                                 })
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 107,
+                                                            lineNumber: 108,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 105,
+                                                    lineNumber: 106,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -845,7 +846,7 @@ function ConfiguracionPage() {
                                                             children: "Tipo de negocio"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 114,
+                                                            lineNumber: 115,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -858,12 +859,12 @@ function ConfiguracionPage() {
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectTrigger"], {
                                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                        lineNumber: 117,
+                                                                        lineNumber: 118,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 116,
+                                                                    lineNumber: 117,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -873,7 +874,7 @@ function ConfiguracionPage() {
                                                                             children: "Salón de belleza"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                            lineNumber: 120,
+                                                                            lineNumber: 121,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -881,7 +882,7 @@ function ConfiguracionPage() {
                                                                             children: "Consultorio médico"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                            lineNumber: 121,
+                                                                            lineNumber: 122,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -889,7 +890,7 @@ function ConfiguracionPage() {
                                                                             children: "Gimnasio"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                            lineNumber: 122,
+                                                                            lineNumber: 123,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -897,7 +898,7 @@ function ConfiguracionPage() {
                                                                             children: "Taller mecánico"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                            lineNumber: 123,
+                                                                            lineNumber: 124,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -905,25 +906,25 @@ function ConfiguracionPage() {
                                                                             children: "Otro"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                            lineNumber: 124,
+                                                                            lineNumber: 125,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 119,
+                                                                    lineNumber: 120,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 115,
+                                                            lineNumber: 116,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 113,
+                                                    lineNumber: 114,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -934,7 +935,7 @@ function ConfiguracionPage() {
                                                             children: "Dirección"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 129,
+                                                            lineNumber: 130,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -946,13 +947,13 @@ function ConfiguracionPage() {
                                                                 })
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 130,
+                                                            lineNumber: 131,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 128,
+                                                    lineNumber: 129,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -963,7 +964,7 @@ function ConfiguracionPage() {
                                                             children: "Teléfono"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 137,
+                                                            lineNumber: 138,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -975,13 +976,13 @@ function ConfiguracionPage() {
                                                                 })
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 138,
+                                                            lineNumber: 139,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 136,
+                                                    lineNumber: 137,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -992,7 +993,7 @@ function ConfiguracionPage() {
                                                             children: "Email de contacto"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 145,
+                                                            lineNumber: 146,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1005,19 +1006,19 @@ function ConfiguracionPage() {
                                                                 })
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 146,
+                                                            lineNumber: 147,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 144,
+                                                    lineNumber: 145,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 104,
+                                            lineNumber: 105,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1027,31 +1028,31 @@ function ConfiguracionPage() {
                                                     className: "mr-2 h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 155,
+                                                    lineNumber: 156,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Guardar cambios"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 154,
+                                            lineNumber: 155,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                    lineNumber: 103,
+                                    lineNumber: 104,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                            lineNumber: 98,
+                            lineNumber: 99,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                        lineNumber: 97,
+                        lineNumber: 98,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -1064,20 +1065,20 @@ function ConfiguracionPage() {
                                             children: "Horarios de Atención"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 166,
+                                            lineNumber: 167,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
                                             children: "Configura los días y horas de servicio"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 167,
+                                            lineNumber: 168,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                    lineNumber: 165,
+                                    lineNumber: 166,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1094,7 +1095,7 @@ function ConfiguracionPage() {
                                                                 onCheckedChange: ()=>toggleDia(index)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                lineNumber: 176,
+                                                                lineNumber: 177,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1102,13 +1103,13 @@ function ConfiguracionPage() {
                                                                 children: horario.dia
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                lineNumber: 177,
+                                                                lineNumber: 178,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                        lineNumber: 175,
+                                                        lineNumber: 176,
                                                         columnNumber: 19
                                                     }, this),
                                                     horario.activo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1121,7 +1122,7 @@ function ConfiguracionPage() {
                                                                 className: "w-32"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                lineNumber: 183,
+                                                                lineNumber: 184,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1129,7 +1130,7 @@ function ConfiguracionPage() {
                                                                 children: "a"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                lineNumber: 189,
+                                                                lineNumber: 190,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1139,13 +1140,13 @@ function ConfiguracionPage() {
                                                                 className: "w-32"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                lineNumber: 190,
+                                                                lineNumber: 191,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                        lineNumber: 182,
+                                                        lineNumber: 183,
                                                         columnNumber: 21
                                                     }, this),
                                                     !horario.activo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1153,13 +1154,13 @@ function ConfiguracionPage() {
                                                         children: "Cerrado"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                        lineNumber: 198,
+                                                        lineNumber: 199,
                                                         columnNumber: 39
                                                     }, this)
                                                 ]
                                             }, horario.dia, true, {
                                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                lineNumber: 171,
+                                                lineNumber: 172,
                                                 columnNumber: 17
                                             }, this)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1169,31 +1170,31 @@ function ConfiguracionPage() {
                                                     className: "mr-2 h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 202,
+                                                    lineNumber: 203,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Guardar horarios"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 201,
+                                            lineNumber: 202,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 170,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                            lineNumber: 164,
+                            lineNumber: 165,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                        lineNumber: 163,
+                        lineNumber: 164,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -1206,20 +1207,20 @@ function ConfiguracionPage() {
                                             children: "Servicios"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 213,
+                                            lineNumber: 214,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
                                             children: "Administra los servicios que ofreces"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 214,
+                                            lineNumber: 215,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                    lineNumber: 212,
+                                    lineNumber: 213,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1237,7 +1238,7 @@ function ConfiguracionPage() {
                                                                     children: servicio.nombre
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 224,
+                                                                    lineNumber: 225,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1249,13 +1250,13 @@ function ConfiguracionPage() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 225,
+                                                                    lineNumber: 226,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 223,
+                                                            lineNumber: 224,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1267,23 +1268,23 @@ function ConfiguracionPage() {
                                                                 className: "h-4 w-4"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                lineNumber: 235,
+                                                                lineNumber: 236,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 229,
+                                                            lineNumber: 230,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, servicio.id, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 219,
+                                                    lineNumber: 220,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 217,
+                                            lineNumber: 218,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1294,7 +1295,7 @@ function ConfiguracionPage() {
                                                     children: "Agregar nuevo servicio"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 242,
+                                                    lineNumber: 243,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1307,7 +1308,7 @@ function ConfiguracionPage() {
                                                                     children: "Nombre del servicio"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 245,
+                                                                    lineNumber: 246,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1319,13 +1320,13 @@ function ConfiguracionPage() {
                                                                         })
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 246,
+                                                                    lineNumber: 247,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 244,
+                                                            lineNumber: 245,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1335,7 +1336,7 @@ function ConfiguracionPage() {
                                                                     children: "Duración (min)"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 253,
+                                                                    lineNumber: 254,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1347,13 +1348,13 @@ function ConfiguracionPage() {
                                                                         })
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 254,
+                                                                    lineNumber: 255,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 252,
+                                                            lineNumber: 253,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1363,7 +1364,7 @@ function ConfiguracionPage() {
                                                                     children: "Precio ($)"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 263,
+                                                                    lineNumber: 264,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1375,19 +1376,19 @@ function ConfiguracionPage() {
                                                                         })
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 264,
+                                                                    lineNumber: 265,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 262,
+                                                            lineNumber: 263,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 243,
+                                                    lineNumber: 244,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1398,37 +1399,37 @@ function ConfiguracionPage() {
                                                             className: "mr-2 h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 274,
+                                                            lineNumber: 275,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Agregar servicio"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 273,
+                                                    lineNumber: 274,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 241,
+                                            lineNumber: 242,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                    lineNumber: 216,
+                                    lineNumber: 217,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                            lineNumber: 211,
+                            lineNumber: 212,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                        lineNumber: 210,
+                        lineNumber: 211,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$tabs$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TabsContent"], {
@@ -1441,20 +1442,20 @@ function ConfiguracionPage() {
                                             children: "Notificaciones"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 286,
+                                            lineNumber: 287,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
                                             children: "Configura los recordatorios por email (AWS SES)"
                                         }, void 0, false, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 287,
+                                            lineNumber: 288,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                    lineNumber: 285,
+                                    lineNumber: 286,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -1470,7 +1471,7 @@ function ConfiguracionPage() {
                                                             children: "Email de confirmación"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 292,
+                                                            lineNumber: 293,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1478,13 +1479,13 @@ function ConfiguracionPage() {
                                                             children: "Enviar email al cliente cuando se confirma una cita"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 293,
+                                                            lineNumber: 294,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 291,
+                                                    lineNumber: 292,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Switch"], {
@@ -1495,13 +1496,13 @@ function ConfiguracionPage() {
                                                         })
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 295,
+                                                    lineNumber: 296,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 290,
+                                            lineNumber: 291,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1514,7 +1515,7 @@ function ConfiguracionPage() {
                                                             children: "Email de recordatorio"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 303,
+                                                            lineNumber: 304,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1522,13 +1523,13 @@ function ConfiguracionPage() {
                                                             children: "Enviar recordatorio antes de la cita"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 304,
+                                                            lineNumber: 305,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 302,
+                                                    lineNumber: 303,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Switch"], {
@@ -1539,13 +1540,13 @@ function ConfiguracionPage() {
                                                         })
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 306,
+                                                    lineNumber: 307,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 301,
+                                            lineNumber: 302,
                                             columnNumber: 15
                                         }, this),
                                         notificaciones.emailRecordatorio && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1555,7 +1556,7 @@ function ConfiguracionPage() {
                                                     children: "Enviar recordatorio con anticipación de:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 314,
+                                                    lineNumber: 315,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -1569,12 +1570,12 @@ function ConfiguracionPage() {
                                                             className: "w-48",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                lineNumber: 320,
+                                                                lineNumber: 321,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 319,
+                                                            lineNumber: 320,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1584,7 +1585,7 @@ function ConfiguracionPage() {
                                                                     children: "1 hora antes"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 323,
+                                                                    lineNumber: 324,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1592,7 +1593,7 @@ function ConfiguracionPage() {
                                                                     children: "2 horas antes"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 324,
+                                                                    lineNumber: 325,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1600,7 +1601,7 @@ function ConfiguracionPage() {
                                                                     children: "12 horas antes"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 325,
+                                                                    lineNumber: 326,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1608,7 +1609,7 @@ function ConfiguracionPage() {
                                                                     children: "24 horas antes"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 326,
+                                                                    lineNumber: 327,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1616,25 +1617,25 @@ function ConfiguracionPage() {
                                                                     children: "48 horas antes"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                                    lineNumber: 327,
+                                                                    lineNumber: 328,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                            lineNumber: 322,
+                                                            lineNumber: 323,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 315,
+                                                    lineNumber: 316,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 313,
+                                            lineNumber: 314,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1644,43 +1645,43 @@ function ConfiguracionPage() {
                                                     className: "mr-2 h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                                    lineNumber: 334,
+                                                    lineNumber: 335,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Guardar configuración"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                            lineNumber: 333,
+                                            lineNumber: 334,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                                    lineNumber: 289,
+                                    lineNumber: 290,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                            lineNumber: 284,
+                            lineNumber: 285,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                        lineNumber: 283,
+                        lineNumber: 284,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/configuracion/page.tsx",
-                lineNumber: 76,
+                lineNumber: 77,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/dashboard/configuracion/page.tsx",
-        lineNumber: 70,
+        lineNumber: 71,
         columnNumber: 5
     }, this);
 }

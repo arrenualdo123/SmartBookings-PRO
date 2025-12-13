@@ -1,6 +1,7 @@
 {
+  "/dashboard/configuracion/page": "app/dashboard/configuracion/page.js",
   "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/perfil/page": "app/dashboard/perfil/page.js",
   "/login/page": "app/login/page.js",
-  "/page": "app/page.js",
-  "/registro/page": "app/registro/page.js"
+  "/page": "app/page.js"
 }

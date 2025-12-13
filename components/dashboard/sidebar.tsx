@@ -24,7 +24,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
 import { useAuth } from "@/context/AuthContext";
 
 const navigation = [
@@ -39,15 +38,15 @@ export function Sidebar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // 👇 Usuario real del contexto
-  const { user } = useAuth();
+  const { user, logout, loading } = useAuth();
 
-  // Si no hay usuario, evitar errores
+  if (loading) return null;
+
   const safeUser = {
-    nombre: user?.name ?? "Usuario",
+    name: user?.name ?? "Usuario",
     email: user?.email ?? "correo@ejemplo.com",
-    rol: user?.role ?? "empleado",
-    negocio: "Mi Negocio",
+    role: user?.role ?? "employee",
+    business: "Mi Negocio",
   };
 
   return (
@@ -66,24 +65,15 @@ export function Sidebar() {
           variant="ghost"
           size="icon"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-sidebar-foreground hover:bg-sidebar-accent"
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isMobileMenuOpen ? <X /> : <Menu />}
         </Button>
       </header>
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div
-          className="lg:hidden fixed inset-0 bg-foreground/50 z-40"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
 
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-0 left-0 h-full w-64 bg-sidebar border-r border-sidebar-border z-50 flex flex-col transition-transform duration-300 lg:translate-x-0",
+          "fixed top-0 left-0 h-full w-64 bg-sidebar border-r border-sidebar-border z-50 transition-transform duration-300 lg:translate-x-0",
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -96,7 +86,9 @@ export function Sidebar() {
             <span className="text-lg font-semibold text-sidebar-foreground">
               SmartBookings
             </span>
-            <p className="text-xs text-sidebar-foreground/60">{safeUser.negocio}</p>
+            <p className="text-xs text-sidebar-foreground/60">
+              {safeUser.business}
+            </p>
           </div>
         </div>
 
@@ -113,7 +105,7 @@ export function Sidebar() {
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                   isActive
                     ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                    : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                    : "text-sidebar-foreground/70 hover:bg-sidebar-accent"
                 )}
               >
                 <item.icon className="w-5 h-5" />
@@ -127,46 +119,41 @@ export function Sidebar() {
         <div className="p-3 border-t border-sidebar-border">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-sidebar-accent transition-colors">
-                <div className="w-9 h-9 bg-sidebar-accent rounded-full flex items-center justify-center">
-                  <UserCircle className="w-6 h-6 text-sidebar-accent-foreground" />
-                </div>
+              <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-sidebar-accent">
+                <UserCircle className="w-8 h-8 text-sidebar-foreground" />
                 <div className="flex-1 text-left">
                   <p className="text-sm font-medium text-sidebar-foreground">
-                    {safeUser.nombre}
-                  </p>
-                  <p className="text-xs text-sidebar-foreground/60 capitalize">
-                    {safeUser.rol}
-                  </p>
+            {safeUser.name}
+            </p>
+            <p className="text-xs capitalize text-sidebar-foreground/70">
+            {safeUser.role}
+             </p>
+
                 </div>
-                <ChevronDown className="w-4 h-4 text-sidebar-foreground/60" />
+                <ChevronDown className="w-4 h-4" />
               </button>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent align="end" className="w-56">
               <div className="px-2 py-1.5">
-                <p className="text-sm font-medium">{safeUser.nombre}</p>
-                <p className="text-xs text-muted-foreground">{safeUser.email}</p>
+                <p className="text-sm font-medium">{safeUser.name}</p>
+                <p className="text-xs text-muted-foreground">
+                  {safeUser.email}
+                </p>
               </div>
+
               <DropdownMenuSeparator />
+
               <DropdownMenuItem asChild>
-                <Link href="/dashboard/perfil" className="cursor-pointer">
+                <Link href="/dashboard/perfil">
                   <UserCircle className="w-4 h-4 mr-2" />
                   Mi perfil
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/dashboard/configuracion" className="cursor-pointer">
-                  <Settings className="w-4 h-4 mr-2" />
-                  Configuración
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem asChild>
-                <Link href="/login" className="cursor-pointer text-destructive">
-                  <LogOut className="w-4 h-4 mr-2" />
-                  Cerrar sesión
-                </Link>
+
+              <DropdownMenuItem onClick={logout} className="text-destructive">
+                <LogOut className="w-4 h-4 mr-2" />
+                Cerrar sesión
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

@@ -528,10 +528,6 @@
     top: 100%;
   }
 
-  .-right-2 {
-    right: calc(var(--spacing) * -2);
-  }
-
   .-right-12 {
     right: calc(var(--spacing) * -12);
   }
@@ -554,10 +550,6 @@
 
   .right-4 {
     right: calc(var(--spacing) * 4);
-  }
-
-  .-bottom-2 {
-    bottom: calc(var(--spacing) * -2);
   }
 
   .-bottom-12 {
@@ -606,10 +598,6 @@
 
   .z-20 {
     z-index: 20;
-  }
-
-  .z-40 {
-    z-index: 40;
   }
 
   .z-50 {
@@ -997,10 +985,6 @@
     height: calc(var(--spacing) * 20);
   }
 
-  .h-24 {
-    height: calc(var(--spacing) * 24);
-  }
-
   .h-\[1\.15rem\] {
     height: 1.15rem;
   }
@@ -1151,10 +1135,6 @@
 
   .w-20 {
     width: calc(var(--spacing) * 20);
-  }
-
-  .w-24 {
-    width: calc(var(--spacing) * 24);
   }
 
   .w-32 {
@@ -1411,10 +1391,6 @@
     cursor: default;
   }
 
-  .cursor-pointer {
-    cursor: pointer;
-  }
-
   .cursor-text {
     cursor: text;
   }
@@ -1505,10 +1481,6 @@
 
   .justify-center {
     justify-content: center;
-  }
-
-  .justify-end {
-    justify-content: flex-end;
   }
 
   .justify-start {
@@ -1908,16 +1880,6 @@
     background-color: var(--foreground);
   }
 
-  .bg-foreground\/50 {
-    background-color: var(--foreground);
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-foreground\/50 {
-      background-color: color-mix(in oklab, var(--foreground) 50%, transparent);
-    }
-  }
-
   .bg-green-100 {
     background-color: var(--color-green-100);
   }
@@ -2022,10 +1984,6 @@
 
   .bg-sidebar {
     background-color: var(--sidebar);
-  }
-
-  .bg-sidebar-accent {
-    background-color: var(--sidebar-accent);
   }
 
   .bg-sidebar-border {
@@ -2488,10 +2446,6 @@
     color: var(--color-red-500);
   }
 
-  .text-red-600 {
-    color: var(--color-red-600);
-  }
-
   .text-red-700 {
     color: var(--color-red-700);
   }
@@ -2502,10 +2456,6 @@
 
   .text-secondary-foreground {
     color: var(--secondary-foreground);
-  }
-
-  .text-sidebar-accent-foreground {
-    color: var(--sidebar-accent-foreground);
   }
 
   .text-sidebar-foreground {
@@ -3382,12 +3332,6 @@
   @media (hover: hover) {
     .hover\:text-muted-foreground:hover {
       color: var(--muted-foreground);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:text-red-700:hover {
-      color: var(--color-red-700);
     }
   }
 
