@@ -74,265 +74,189 @@ Elastic Beanstalk
 
 
 SmartBookings - Guía de Prueba de APIs
-📋 Descripción General
-Esta guía explica cómo probar todas las rutas del backend (Laravel) desde el frontend deployado en Elastic Beanstalk. Incluye ejemplos prácticos, capturas de pantalla y respuestas esperadas.
 
-🚀 Requisitos Previos
+# PHP 8.2 o superior
+php -v
 
-EC2 (Backend Laravel) corriendo en: http://3.140.187.117/api
-Elastic Beanstalk (Frontend Next.js) deployado en: http://laravel-front-env.eba-btdhn5nm.us-east-2.elasticbeanstalk.com
-Navegador moderno (Chrome, Firefox, Safari)
-Consola del navegador abierta (F12 → Console)
+# Composer
+composer --version
+
+# Git
+git --version
+
+# PostgreSQL (o MySQL)
+psql --version
+
+# Postman (descarga desde postman.com)
+
+# Clona el repositorio
+git clone https://github.com/arrenualdo123/SmartBookings-PRO.git
+
+# Entra a la carpeta del proyecto
+cd SmartBookings
+
+# Instala las dependencias de PHP con Composer
+composer install
+
+# Esto puede tardar 2-5 minutos
+# Verifica que no haya errores
+
+Configurar estas variables:
+APP_NAME="SmartBookings"
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=smartbookings_local
+DB_USERNAME=postgres
+DB_PASSWORD=tu_contraseña
+
+JWT_SECRET=tu_clave_jwt_secreta
+
+Paso 5: Generar Clave de Aplicación
+php artisan key:generate
+
+# Output: Application key set successfully.
+
+Paso 6: ejecutar las migraciones
+# Ejecuta las migraciones
+php artisan migrate
+
+# Output esperado:
+# Migration table created successfully.
+# Migrating: ...
+# Migrated: ...
+
+Paso 8: Correr el servidor
+
+php artisan serve
 
 
-📝 Paso 1: Abre la Consola del Navegador
+Paso 9: Testing en Postman
+9.1 Crear una Colección en Postman
 
-Accede al frontend: http://laravel-front-env.eba-btdhn5nm.us-east-2.elasticbeanstalk.com
-Presiona F12 en tu teclado
-Ve a la pestaña Console
+Abre Postman
+Click en "Create Collection"
+Nombra tu colección: "SmartBookings API"
 
-Show Image
+9.2 Variables de Entorno en Postman
 
-🔐 Sección 1: Autenticación
-1.1 Registrar un nuevo usuario (Register)
-Ruta: POST /api/auth/register
-Copia y pega esto en la consola:
-javascriptfetch('http://3.140.187.117/api/auth/register', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    name: 'John Doe',
-    email: 'john@example.com',
-    password: 'password123',
-    password_confirmation: 'password123',
-    role: 'admin'
-  })
-}).then(r => r.json()).then(d => console.log(d))
-Respuesta esperada (Éxito):
-json{
-  "message": "User created successfully",
-  "user": {
-    "business_id": 1,
-    "name": "John Doe",
-    "email": "john@example.com",
-    "role": "admin",
-    "id": 3,
-    "created_at": "2025-12-16T03:15:00.000000Z"
-  }
+Click en el ícono de engranaje (⚙️) en la esquina superior derecha
+Selecciona "Manage Environments"
+Click en "Add"
+Nombra: "Local Development"
+Añade estas variables:
+
+base_url: http://localhost:8000/api
+admin_token: (se obtiene del login)
+employee_token: (se obtiene del login)
+
+Click en "Save"
+
+9.3 Crear Peticiones en Postman
+9.3.1 Register Admin
+Método: POST
+URL: {{base_url}}/auth/register
+Headers:
+Content-Type: application/json
+Body (raw JSON):
+{
+  "name": "Admin Usuario",
+  "email": "admin@local.com",
+  "password": "AdminPass123!",
+  "password_confirmation": "AdminPass123!",
+  "role": "admin"
 }
-Nota: Los campos role pueden ser: admin o employee
-
-1.2 Iniciar sesión (Login)
-Ruta: POST /api/auth/login
-javascriptfetch('http://3.140.187.117/api/auth/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    email: 'john@example.com',
-    password: 'password123'
-  })
-}).then(r => r.json()).then(d => {
-  console.log(d);
-  // Guarda el token para usarlo después
-  window.token = d.access_token;
-})
+Click en "Send"
+9.3.2 Register Empleado
+Método: POST
+URL: {{base_url}}/auth/register
+Body:
+{
+  "name": "Empleado Juan",
+  "email": "juan@local.com",
+  "password": "EmpleadoPass123!",
+  "password_confirmation": "EmpleadoPass123!",
+  "role": "employe"
+}
+9.3.3 Login Admin
+Método: POST
+URL: {{base_url}}/auth/login
+Body:
+{
+  "email": "admin@local.com",
+  "password": "AdminPass123!"
+}
 Respuesta esperada:
-json{
+{
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
   "token_type": "bearer",
-  "user": {
-    "id": 3,
-    "business_id": 1,
-    "role": "admin",
-    "name": "John Doe",
-    "email": "john@example.com"
-  }
+  "user": { ... }
 }
-⚠️ Importante: Guarda el access_token en la variable window.token para usarlo en las siguientes peticiones.
+Guardar el token en la variable admin_token:
 
-📅 Sección 2: Gestión de Citas
-2.1 Obtener todas las citas (GET)
-Ruta: GET /api/appointments
-javascriptfetch('http://3.140.187.117/api/appointments', {
-  method: 'GET',
-  headers: { 
-    'Authorization': `Bearer ${window.token}`,
-    'Content-Type': 'application/json'
-  }
-}).then(r => r.json()).then(d => console.log(d))
-Respuesta esperada:
-json{
-  "status": "success",
-  "data": [
-    {
-      "id": 1,
-      "business_id": 1,
-      "user_id": 3,
-      "client_name": "Jane Smith",
-      "start_time": "2025-12-20T10:00:00.000000Z",
-      "end_time": "2025-12-20T11:00:00.000000Z",
-      "notes": "Primera consulta"
-    }
-  ]
+En la respuesta, selecciona el token
+Click derecho → "Set admin_token as variable"
+
+9.3.4 Crear Cita
+Método: POST
+URL: {{base_url}}/appointments
+Headers:
+Authorization: Bearer {{admin_token}}
+Content-Type: application/json
+Body:
+{
+  "user_id": 2,
+  "client_name": "Carlos García",
+  "start_time": "2025-12-17 10:00:00",
+  "end_time": "2025-12-17 11:00:00",
+  "notes": "Consulta inicial"
 }
-
-2.2 Crear una nueva cita (POST)
-Ruta: POST /api/appointments
-javascriptfetch('http://3.140.187.117/api/appointments', {
-  method: 'POST',
-  headers: { 
-    'Authorization': `Bearer ${window.token}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    user_id: 3,
-    client_name: 'Carlos López',
-    start_time: '2025-12-22 14:00:00',
-    end_time: '2025-12-22 15:00:00',
-    notes: 'Consulta de seguimiento'
-  })
-}).then(r => r.json()).then(d => console.log(d))
-Respuesta esperada:
-json{
-  "status": "success",
-  "data": {
-    "id": 2,
-    "business_id": 1,
-    "user_id": 3,
-    "client_name": "Carlos López",
-    "start_time": "2025-12-22T14:00:00.000000Z",
-    "end_time": "2025-12-22T15:00:00.000000Z",
-    "notes": "Consulta de seguimiento",
-    "created_at": "2025-12-16T03:20:00.000000Z"
-  }
+9.3.5 Obtener Todas las Citas
+Método: GET
+URL: {{base_url}}/appointments
+Headers:
+Authorization: Bearer {{admin_token}}
+Content-Type: application/json
+9.3.6 Intento de Solapamiento (DEBE FALLAR)
+Método: POST
+URL: {{base_url}}/appointments
+Headers:
+Authorization: Bearer {{admin_token}}
+Content-Type: application/json
+Body:
+{
+  "user_id": 2,
+  "client_name": "Pedro López",
+  "start_time": "2025-12-17 10:30:00",
+  "end_time": "2025-12-17 11:30:00",
+  "notes": "Solapamiento"
 }
-
-2.3 Actualizar una cita (PUT)
-Ruta: PUT /api/appointments/:id
-javascriptfetch('http://3.140.187.117/api/appointments/2', {
-  method: 'PUT',
-  headers: { 
-    'Authorization': `Bearer ${window.token}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    user_id: 3,
-    client_name: 'Carlos López Actualizado',
-    start_time: '2025-12-22 15:30:00',
-    end_time: '2025-12-22 16:30:00',
-    notes: 'Cita actualizada'
-  })
-}).then(r => r.json()).then(d => console.log(d))
-Respuesta esperada:
-json{
-  "status": "success",
-  "data": {
-    "id": 2,
-    "client_name": "Carlos López Actualizado",
-    "start_time": "2025-12-22T15:30:00.000000Z",
-    "end_time": "2025-12-22T16:30:00.000000Z"
-  }
-}
-
-2.4 Prueba de Solapamiento de Citas
-Ruta: POST /api/appointments
-Este test verifica que el sistema no permite crear citas que se solapan con otras existentes.
-javascriptfetch('http://3.140.187.117/api/appointments', {
-  method: 'POST',
-  headers: { 
-    'Authorization': `Bearer ${window.token}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    user_id: 3,
-    client_name: 'Cliente Conflicto',
-    start_time: '2025-12-22 15:45:00',
-    end_time: '2025-12-22 16:45:00',
-    notes: 'Esta cita se solapa con la anterior'
-  })
-}).then(r => r.json()).then(d => console.log(d))
-Respuesta esperada (Error):
-json{
+Respuesta esperada (ERROR):
+{
   "status": "error",
   "message": "Este horario se solapa con otra cita existente."
 }
 
-2.5 Obtener citas de un usuario específico (GET)
-Ruta: GET /api/users/:id/appointments
-javascriptfetch('http://3.140.187.117/api/users/3/appointments', {
-  method: 'GET',
-  headers: { 
-    'Authorization': `Bearer ${window.token}`,
-    'Content-Type': 'application/json'
-  }
-}).then(r => r.json()).then(d => console.log(d))
-Respuesta esperada:
-json{
-  "status": "success",
-  "data": [
-    {
-      "id": 2,
-      "user_id": 3,
-      "client_name": "Carlos López Actualizado",
-      "start_time": "2025-12-22T15:30:00.000000Z"
-    }
-  ]
-}
-
-2.6 Eliminar una cita (DELETE)
-Ruta: DELETE /api/appointments/:id
-javascriptfetch('http://3.140.187.117/api/appointments/2', {
-  method: 'DELETE',
-  headers: { 
-    'Authorization': `Bearer ${window.token}`,
-    'Content-Type': 'application/json'
-  }
-}).then(r => r.json()).then(d => console.log(d))
-Respuesta esperada:
-json{
-  "status": "success",
-  "message": "Appointment deleted successfully"
-}
-
-✅ Checklist de Pruebas
-Marca cada prueba conforme las completes:
-
- Register - Crear nuevo usuario
- Login - Obtener token JWT
- GET /api/appointments - Listar citas
- POST /api/appointments - Crear cita
- PUT /api/appointments/:id - Actualizar cita
- Validación de solapamiento - Error esperado
- GET /api/users/:id/appointments - Citas del usuario
- DELETE /api/appointments/:id - Eliminar cita
+Paso 10: Testing en Terminal con cURL
+10.1 Register Admin
+bashcurl -X POST "http://localhost:8000/api/auth/register" -H "Content-Type: application/json" -d '{"name":"Admin Local","email":"admin_local@test.com","password":"AdminPass123!","password_confirmation":"AdminPass123!","role":"admin"}' | jq .
+10.2 Register Empleado
+bashcurl -X POST "http://localhost:8000/api/auth/register" -H "Content-Type: application/json" -d '{"name":"Empleado Local","email":"empleado_local@test.com","password":"EmpleadoPass123!","password_confirmation":"EmpleadoPass123!","role":"employe"}' | jq .
+10.3 Login Admin
+bashcurl -s -X POST "http://localhost:8000/api/auth/login" -H "Content-Type: application/json" -d '{"email":"admin_local@test.com","password":"AdminPass123!"}' | jq .
+Guarda el token:
+bashTOKEN_ADMIN="tu_token_aqui"
+10.4 Crear Cita
+bashcurl -s -X POST "http://localhost:8000/api/appointments" -H "Authorization: Bearer $TOKEN_ADMIN" -H "Content-Type: application/json" -d '{"user_id":2,"client_name":"Carlos García","start_time":"2025-12-17 10:00:00","end_time":"2025-12-17 11:00:00","notes":"Consulta"}' | jq .
+10.5 Obtener Citas
+bashcurl -s -X GET "http://localhost:8000/api/appointments" -H "Authorization: Bearer $TOKEN_ADMIN" -H "Content-Type: application/json" | jq .
+10.6 Intento de Solapamiento (DEBE FALLAR)
+bashcurl -s -X POST "http://localhost:8000/api/appointments" -H "Authorization: Beare
 
 
-🔧 Solución de Problemas
-Error: "CORS policy blocked"
-Solución: Asegúrate de que el CORS está configurado en Laravel:
-bash# En EC2
-nano /var/www/SmartBookings-PRO/SmartBookings/config/cors.php
-Añade tu dominio de EB a allowed_origins.
 
-Error: "Token expired"
-Solución: El token JWT expira después de un tiempo. Haz login nuevamente:
-javascript// Obtén un nuevo token
-fetch('http://3.140.187.117/api/auth/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    email: 'john@example.com',
-    password: 'password123'
-  })
-}).then(r => r.json()).then(d => {
-  window.token = d.access_token;
-  console.log('Nuevo token guardado');
-})
-
-Error: 502 Bad Gateway en EB
-Solución: Verifica que Next.js está corriendo en puerto 8080:
-bash# En EB (via SSH)
-systemctl status web.service
-
-📊 Resumen de Endpoints
-MétodoRutaDescripciónPOST/api/auth/registerRegistrar usuarioPOST/api/auth/loginIniciar sesiónGET/api/appointmentsListar citasPOST/api/appointmentsCrear citaPUT/api/appointments/:idActualizar citaDELETE/api/appointments/:idEliminar citaGET/api/users/:id/appointmentsCitas del usuario
+///////posdata si en el rol no funciona employe cambiar por employee\\\\\\\\\\\\\\\\\\\\
